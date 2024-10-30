@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<claustro centro="IES Castillo de Luna">
+  <profesor id="p01">
+    <apelativo>Pepe</apelativo>
+    <nombre>José</nombre>
+    <apellidos>Pérez Manrique</apellidos>
+    <departamento>Inglés</departamento>
+  </profesor>
+  <profesor id="p12">
+    <apelativo>María</apelativo>
+    <nombre>María</nombre>
+    <apellidos>Galván Núñez</apellidos>
+    <departamento>Lengua y Literatura</departamento>
+  </profesor>
+</claustro>
