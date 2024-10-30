@@ -15,13 +15,15 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import com.fasterxml.jackson.dataformat.xml.ser.ToXmlGenerator;
 
+import edu.acceso.xml_jackson.Profesor.Departamento;
+
 public class Main {
     public static void main(String[] args) {
         Path archivo = Path.of("src", "main", "resources", "claustro.xml");
 
         Claustro claustro = new Claustro().cargarDatos("IES Castillo de Luna", new Profesor[] {
-            new Profesor().cargarDatos("p01", null, null, "Pepe", "José", "Pérez Manrique", "Inglés"),
-            new Profesor().cargarDatos("p12", null, null, "María", "María", "Galván Núñez", "Lengua y Literatura")
+            new Profesor().cargarDatos("p01", null, null, "Pepe", "José", "Pérez Manrique", Departamento.obtenerDepartamento("Inglés")),
+            new Profesor().cargarDatos("p12", null, null, "María", "María", "Galván Núñez", Departamento.obtenerDepartamento("Lengua y Literatura"))
         });
 
         ObjectMapper mapper = new XmlMapper()

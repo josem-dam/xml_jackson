@@ -2,6 +2,8 @@ package edu.acceso.xml_jackson;
 
 import java.util.Arrays;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 
 /**
@@ -57,7 +59,10 @@ public class Profesor {
     private String apelativo;
     private String nombre;
     private String apellidos;
-    private String departamento;
+
+    @JsonSerialize(using=Traductor.DepartamentoSerializer.class)
+    @JsonDeserialize(using=Traductor.DepartamentoDeserializer.class)
+    private Departamento departamento;
 
     public Profesor() { super(); }
 
@@ -67,7 +72,7 @@ public class Profesor {
                                 String apelativo,
                                 String nombre,
                                 String apellidos,
-                                String departamento) {
+                                Departamento departamento) {
         setId(id);
         setSustituye(sustituye);
         setCasillero(casillero);
@@ -126,11 +131,11 @@ public class Profesor {
         this.apellidos = apellidos;
     }
 
-    public String getDepartamento() {
+    public Departamento getDepartamento() {
         return departamento;
     }
 
-    public void setDepartamento(String departamento) {
+    public void setDepartamento(Departamento departamento) {
         this.departamento = departamento;
     }
 
